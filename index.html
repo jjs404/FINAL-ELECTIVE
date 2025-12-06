@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weekly Calendar — Repeat Full</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="image.png" type="image/x-icon">
+</head>
+<body>
+  <div class="app">
+    <aside class="left">
+      <div class="brand">
+        <div class="logo">📅</div>
+        <div class="title">My Calendar</div>
+      </div>
+
+      <div class="mini">
+        <div class="mini-header">
+          <button id="miniPrev">&lt;</button>
+          <div id="miniMonthLabel"></div>
+          <button id="miniNext">&gt;</button>
+        </div>
+        <div id="miniCal" class="mini-grid"></div>
+      </div>
+
+      <div class="left-controls">
+        <button id="todayBtn" class="primary">Today</button>
+        <button id="createBtn">+ Create</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="tz">GMT+<span id="tzOffset"></span></div>
+        <div class="nav">
+          <button id="prevWeek">&lt;</button>
+          <button id="nextWeek">&gt;</button>
+          <div id="weekLabel" class="weekLabel"></div>
+        </div>
+      </div>
+
+      <div class="weektable">
+        <div class="weekheader" id="weekHeader"></div>
+        <div class="gridcontainer" id="gridContainer"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup hidden" role="dialog" aria-modal="true">
+    <h3 id="popupTitle">Create event</h3>
+
+    <label>Title</label>
+    <input id="evTitle" type="text" placeholder="Event title">
+
+    <label>Original Date (anchor)</label>
+    <input id="evDate" type="date">
+
+    <div class="time-row">
+      <div>
+        <label>Start</label>
+        <input id="evStart" type="time">
+      </div>
+      <div>
+        <label>End</label>
+        <input id="evEnd" type="time">
+      </div>
+    </div>
+
+    <label>Repeat</label>
+    <select id="evRepeat">
+      <option value="none">Does not repeat</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="biweekly">Every 2 weeks</option>
+      <option value="monthly">Monthly</option>
+      <option value="yearly">Yearly</option>
+      <option value="custom">Custom...</option>
+    </select>
+
+    <div id="customRow" class="hidden">
+      <label>Custom interval</label>
+      <input id="customInterval" type="number" min="1" value="1" style="width:64px">
+      <select id="customUnit">
+        <option value="days">days</option>
+        <option value="weeks">weeks</option>
+        <option value="months">months</option>
+        <option value="years">years</option>
+      </select>
+    </div>
+
+    <label>Notify before</label>
+    <select id="evNotify">
+      <option value="0">At time</option>
+      <option value="5">5 minutes</option>
+      <option value="10">10 minutes</option>
+      <option value="30">30 minutes</option>
+      <option value="60">1 hour</option>
+    </select>
+
+    <div class="popup-actions">
+      <button id="saveEv" class="primary">Save</button>
+      <button id="cancelEv">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
