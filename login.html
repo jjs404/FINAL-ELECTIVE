@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+
+    <style>
+        body {
+            background-image: url(nbsc.png);
+            font-family: Arial;
+        }
+
+        /* NAVBAR */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+            display: block;
+            margin-top: -8px;
+            margin-left: -8px;
+            margin-right: -9px;
+        }
+
+        ul li { float: right; }
+
+        ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        ul li a:hover { background-color: #111111; }
+
+        /* CONTAINER */
+        .container {
+            width: 350px;
+            height: 420px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        }
+
+        /* FORMS */
+        .form-box {
+            width: 200%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        form {
+            width: 50%;
+            padding: 20px;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        input {
+                width: 95%;
+            padding: 10px;
+            position: static;
+            margin: 14px 0;
+            border-radius: 5px;
+            border: none
+          }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-left: 4px;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover { background: black; }
+
+        .switch {
+            text-align: center;
+            margin-top: 15px;
+            color: white;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="#About">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+
+    <!-- LOGIN / SIGNUP BOX -->
+    <div class="container">
+        <div class="form-box" id="formBox">
+
+            <!-- LOGIN -->
+            <form id="loginForm">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button>Login</button>
+                <div class="switch" onclick="slideRight()">Don't have an account? Sign up</div>
+            </form>
+
+            <!-- SIGNUP -->
+            <form id="signupForm">
+                <h2>Sign Up</h2>
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Username">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+                <div class="switch" onclick="slideLeft()">Already have an account? Login</div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script>
+        function slideRight() {
+            document.getElementById("formBox").style.transform = "translateX(-50%)";
+        }
+
+        function slideLeft() {
+            document.getElementById("formBox").style.transform = "translateX(0)";
+        }
+    </script>
+
+</body>
+</html>
